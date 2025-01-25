@@ -6,7 +6,13 @@ set -e
 # Validate eslint
 npm run lint
 
-# Display a message after successful linting
-echo "ESLint validation passed successfully. Proceeding with build..."
+# Display a message after successful linting and testing
+echo "ESLint validation and tests passed successfully. Proceeding with build..."
+# Run tests and abort if they fail
+npm run test
+
+# Display a message after successful build
+echo "Test passed successfully."
+
 
 tsc -b && vite build
